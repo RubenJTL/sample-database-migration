@@ -18,8 +18,12 @@ final class CharacterListViewModel: ObservableObject {
     init(characters: [Character] = [Character](), characterListService: CharacterListServiceType = CharacterListService()) {
         self.characters = characters
         self.characterListService = characterListService
-        
-        fetchCharacters()
+        let storedCharacters = DataStore.sharedInstance.characters
+        if !storedCharacters.isEmpty {
+            self.characters = storedCharacters
+        } else {
+            fetchCharacters()
+        }
     }
     
     func fetchCharacters() {
@@ -36,6 +40,7 @@ final class CharacterListViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] characters in
                 self?.characters = characters
+                DataStore.sharedInstance.updateCharacters(characters)
             }
             .store(in: &cancellables)
     }

@@ -20,6 +20,9 @@
 		B186208729561E7200A6FDD9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208629561E7200A6FDD9 /* Constants.swift */; };
 		B186208B2956247C00A6FDD9 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208A2956247C00A6FDD9 /* CharacterListView.swift */; };
 		B186208D295624A200A6FDD9 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208C295624A200A6FDD9 /* CharacterListViewModel.swift */; };
+		B1862090295632BE00A6FDD9 /* CharacterTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208F295632BE00A6FDD9 /* CharacterTable.swift */; };
+		B18620922956332700A6FDD9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620912956332700A6FDD9 /* DataStore.swift */; };
+		B186209529563AFD00A6FDD9 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B186209429563AFD00A6FDD9 /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,8 @@
 		B186208629561E7200A6FDD9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B186208A2956247C00A6FDD9 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		B186208C295624A200A6FDD9 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		B186208F295632BE00A6FDD9 /* CharacterTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTable.swift; sourceTree = "<group>"; };
+		B18620912956332700A6FDD9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B186209529563AFD00A6FDD9 /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +112,7 @@
 		B18620502956165800A6FDD9 /* sample-database-migration */ = {
 			isa = PBXGroup;
 			children = (
+				B186208E2956326400A6FDD9 /* DataBase */,
 				B1862080295618EA00A6FDD9 /* Services */,
 				B186207D295618B100A6FDD9 /* Extensions */,
 				B18620812956197D00A6FDD9 /* Models */,
@@ -193,6 +200,15 @@
 			path = CharacterList;
 			sourceTree = "<group>";
 		};
+		B186208E2956326400A6FDD9 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				B186208F295632BE00A6FDD9 /* CharacterTable.swift */,
+				B18620912956332700A6FDD9 /* DataStore.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,6 +225,9 @@
 			dependencies = (
 			);
 			name = "sample-database-migration";
+			packageProductDependencies = (
+				B186209429563AFD00A6FDD9 /* SQLite */,
+			);
 			productName = "sample-database-migration";
 			productReference = B186204E2956165800A6FDD9 /* sample-database-migration.app */;
 			productType = "com.apple.product-type.application";
@@ -281,6 +300,9 @@
 				Base,
 			);
 			mainGroup = B18620452956165800A6FDD9;
+			packageReferences = (
+				B186209329563AFD00A6FDD9 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = B186204F2956165800A6FDD9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -326,11 +348,13 @@
 				B18620832956199F00A6FDD9 /* CharacterDTO.swift in Sources */,
 				B186208B2956247C00A6FDD9 /* CharacterListView.swift in Sources */,
 				B186207F295618E400A6FDD9 /* CharacterListService.swift in Sources */,
+				B18620922956332700A6FDD9 /* DataStore.swift in Sources */,
 				B18620542956165800A6FDD9 /* ContentView.swift in Sources */,
 				B186208D295624A200A6FDD9 /* CharacterListViewModel.swift in Sources */,
 				B18620522956165800A6FDD9 /* sample_database_migrationApp.swift in Sources */,
 				B186207C2956185100A6FDD9 /* URLSession+Extension.swift in Sources */,
 				B186208729561E7200A6FDD9 /* Constants.swift in Sources */,
+				B1862090295632BE00A6FDD9 /* CharacterTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +679,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B186209329563AFD00A6FDD9 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:GreenJell0/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B186209429563AFD00A6FDD9 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B186209329563AFD00A6FDD9 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B18620462956165800A6FDD9 /* Project object */;
 }

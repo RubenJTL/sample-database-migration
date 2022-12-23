@@ -31,7 +31,14 @@ struct Character {
         name = characterDTO.name
         status = characterDTO.status
         gender = characterDTO.gender
-//        image = characterDTO.image
         image = URL(string: characterDTO.image)
+    }
+
+    init(id: Int, name: String, status: String, gender: String, image: String) {
+        self.id = id
+        self.name = name
+        self.status = status
+        self.gender = gender
+        self.image = URL(string: image)
     }
 }

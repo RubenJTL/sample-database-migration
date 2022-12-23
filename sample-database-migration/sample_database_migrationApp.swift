@@ -11,7 +11,7 @@ import SwiftUI
 struct sample_database_migrationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CharacterListView()
         }
     }
 }

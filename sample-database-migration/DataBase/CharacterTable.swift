@@ -23,7 +23,6 @@ struct CharacterTable {
             builder.column(status)
             builder.column(gender)
             builder.column(image)
-
         })
     }
 }

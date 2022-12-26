@@ -11,5 +11,14 @@ import CoreData
 
 @objc(CharacterMO)
 public class CharacterMO: NSManagedObject {
-
+    convenience init(character: Character, context: NSManagedObjectContext) {
+//        self.init(context: context)
+        self.init()
+        
+        self.id = character.id
+        self.name = character.name
+        self.gender = character.gender
+        self.status = character.status
+        self.image = character.image
+    }
 }

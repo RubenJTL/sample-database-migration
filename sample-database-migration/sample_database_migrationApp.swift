@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct sample_database_migrationApp: App {
+    @StateObject private var dataController = CoreDataManager()
+
     var body: some Scene {
         WindowGroup {
-            CharacterListView()
+            CharacterListView(viewModel: CharacterListViewModel(managedObjectContext: dataController.context))
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

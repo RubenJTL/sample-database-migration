@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B179D349295A1A3500305684 /* CharacterMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179D347295A1A3500305684 /* CharacterMO+CoreDataClass.swift */; };
 		B179D34A295A1A3500305684 /* CharacterMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179D348295A1A3500305684 /* CharacterMO+CoreDataProperties.swift */; };
+		B179D34C295A406800305684 /* DataBaseMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179D34B295A406800305684 /* DataBaseMigrationManager.swift */; };
 		B18620522956165800A6FDD9 /* sample_database_migrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620512956165800A6FDD9 /* sample_database_migrationApp.swift */; };
 		B18620542956165800A6FDD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620532956165800A6FDD9 /* ContentView.swift */; };
 		B18620562956165900A6FDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18620552956165900A6FDD9 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		B179D347295A1A3500305684 /* CharacterMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B179D348295A1A3500305684 /* CharacterMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B179D34B295A406800305684 /* DataBaseMigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseMigrationManager.swift; sourceTree = "<group>"; };
 		B186204E2956165800A6FDD9 /* sample-database-migration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-database-migration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18620512956165800A6FDD9 /* sample_database_migrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sample_database_migrationApp.swift; sourceTree = "<group>"; };
 		B18620532956165800A6FDD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B1973E3C29567C16000619B2 /* CoreDataManager.swift */,
+				B179D34B295A406800305684 /* DataBaseMigrationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				B18620542956165800A6FDD9 /* ContentView.swift in Sources */,
 				B179D34A295A1A3500305684 /* CharacterMO+CoreDataProperties.swift in Sources */,
 				B186209929566FF800A6FDD9 /* Sample.xcdatamodeld in Sources */,
+				B179D34C295A406800305684 /* DataBaseMigrationManager.swift in Sources */,
 				B186208D295624A200A6FDD9 /* CharacterListViewModel.swift in Sources */,
 				B18620522956165800A6FDD9 /* sample_database_migrationApp.swift in Sources */,
 				B186207C2956185100A6FDD9 /* URLSession+Extension.swift in Sources */,

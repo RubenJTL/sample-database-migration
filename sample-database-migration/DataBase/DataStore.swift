@@ -9,13 +9,13 @@ import Foundation
 import SQLite
 
 class DataStore {
-    static let sharedInstance = DataStore()
+//    static let sharedInstance = DataStore()
 
-    public private(set) var db: Connection!
+    public private(set) var db: Connection
     private var databaseVersion: Int {
         get {
             do {
-                return try Int(db?.scalar("PRAGMA user_version") as? Int64 ?? 0)
+                return try Int(db.scalar("PRAGMA user_version") as? Int64 ?? 0)
             } catch {
                 print(error)
                 return 0
@@ -23,27 +23,38 @@ class DataStore {
         }
         set {
             do {
-                try db?.run("PRAGMA user_version = \(newValue)")
+                try db.run("PRAGMA user_version = \(newValue)")
             } catch {
                 print(error)
             }
         }
     }
     
-    init() {
-        guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { fatalError("Unable to locate path for database") }
-
-        do {
-            db = try Connection("\(path)/database.sqlite3")
-
-            db.busyHandler { _ in
-                print("DB BUSY HANDLER called - possible thread contention for database")
-                return true
-            }
-
-            try updateDatabase()
-        } catch {
-            print(error)
+//    init() {
+//        guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { fatalError("Unable to locate path for database") }
+//
+//        do {
+//            db = try Connection("\(path)/database.sqlite3")
+//
+//            db.busyHandler { _ in
+//                print("DB BUSY HANDLER called - possible thread contention for database")
+//                return true
+//            }
+//
+//            try updateDatabase()
+//        } catch {
+//            print(error)
+//        }
+//    }
+    
+    init() throws {
+        guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        else { fatalError("Unable to locate path for database") }
+        
+        db = try Connection("\(path)/database.sqlite3")
+        db.busyHandler { _ in
+            print("DB BUSY HANDLER called - possible thread contention for database")
+            return true
         }
     }
     

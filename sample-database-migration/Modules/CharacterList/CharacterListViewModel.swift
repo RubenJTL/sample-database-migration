@@ -14,14 +14,17 @@ final class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character]
     @Published var isLoading = false
     
+    private let managedObjectContext: NSManagedObjectContext
     private let characterListService: CharacterListServiceType
+    private let dataStore: DataStore?
     private var cancellables = Set<AnyCancellable>()
     
-    init(characters: [Character] = [Character](), characterListService: CharacterListServiceType = CharacterListService()) {
+    init(characters: [Character] = [Character](), characterListService: CharacterListServiceType = CharacterListService(), managedObjectContext: NSManagedObjectContext) {
         self.characters = characters
         self.characterListService = characterListService
-        let storedCharacters = DataStore.sharedInstance.characters
-        if !storedCharacters.isEmpty {
+        self.managedObjectContext = managedObjectContext
+        self.dataStore = try? DataStore()
+        if let storedCharacters = dataStore?.characters, !storedCharacters.isEmpty {
             self.characters = storedCharacters
         } else {
             fetchCharacters()
@@ -42,7 +45,7 @@ final class CharacterListViewModel: ObservableObject {
                 }
             } receiveValue: { [weak self] characters in
                 self?.characters = characters
-                DataStore.sharedInstance.updateCharacters(characters)
+                self?.dataStore?.updateCharacters(characters)
             }
             .store(in: &cancellables)
     }

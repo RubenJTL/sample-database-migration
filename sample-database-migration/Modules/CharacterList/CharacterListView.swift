@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharacterListView: View {
-    @StateObject var viewModel = CharacterListViewModel()
+    @ObservedObject var viewModel: CharacterListViewModel
     
     var body: some View {
         if viewModel.isLoading {
@@ -23,6 +23,8 @@ struct CharacterListView: View {
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListView()
+        let context = CoreDataManager.shared.context
+        let viewModel = CharacterListViewModel(managedObjectContext: context)
+        CharacterListView(viewModel: viewModel)
     }
 }

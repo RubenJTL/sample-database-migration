@@ -7,6 +7,8 @@
 
 import Combine
 import Foundation
+import SwiftUI
+import CoreData
 
 final class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character]

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B179D349295A1A3500305684 /* CharacterMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179D347295A1A3500305684 /* CharacterMO+CoreDataClass.swift */; };
+		B179D34A295A1A3500305684 /* CharacterMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B179D348295A1A3500305684 /* CharacterMO+CoreDataProperties.swift */; };
 		B18620522956165800A6FDD9 /* sample_database_migrationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620512956165800A6FDD9 /* sample_database_migrationApp.swift */; };
 		B18620542956165800A6FDD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620532956165800A6FDD9 /* ContentView.swift */; };
 		B18620562956165900A6FDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18620552956165900A6FDD9 /* Assets.xcassets */; };
@@ -16,13 +18,15 @@
 		B186206F2956165900A6FDD9 /* sample_database_migrationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186206E2956165900A6FDD9 /* sample_database_migrationUITestsLaunchTests.swift */; };
 		B186207C2956185100A6FDD9 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186207B2956185100A6FDD9 /* URLSession+Extension.swift */; };
 		B186207F295618E400A6FDD9 /* CharacterListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186207E295618E400A6FDD9 /* CharacterListService.swift */; };
-		B18620832956199F00A6FDD9 /* CharacterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620822956199F00A6FDD9 /* CharacterDTO.swift */; };
+		B18620832956199F00A6FDD9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620822956199F00A6FDD9 /* Character.swift */; };
 		B186208729561E7200A6FDD9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208629561E7200A6FDD9 /* Constants.swift */; };
 		B186208B2956247C00A6FDD9 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208A2956247C00A6FDD9 /* CharacterListView.swift */; };
 		B186208D295624A200A6FDD9 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208C295624A200A6FDD9 /* CharacterListViewModel.swift */; };
 		B1862090295632BE00A6FDD9 /* CharacterTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186208F295632BE00A6FDD9 /* CharacterTable.swift */; };
 		B18620922956332700A6FDD9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18620912956332700A6FDD9 /* DataStore.swift */; };
 		B186209529563AFD00A6FDD9 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B186209429563AFD00A6FDD9 /* SQLite */; };
+		B186209929566FF800A6FDD9 /* Sample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B186209729566FF700A6FDD9 /* Sample.xcdatamodeld */; };
+		B1973E3D29567C16000619B2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1973E3C29567C16000619B2 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B179D347295A1A3500305684 /* CharacterMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B179D348295A1A3500305684 /* CharacterMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B186204E2956165800A6FDD9 /* sample-database-migration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-database-migration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18620512956165800A6FDD9 /* sample_database_migrationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sample_database_migrationApp.swift; sourceTree = "<group>"; };
 		B18620532956165800A6FDD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,12 +61,14 @@
 		B186206E2956165900A6FDD9 /* sample_database_migrationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sample_database_migrationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B186207B2956185100A6FDD9 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		B186207E295618E400A6FDD9 /* CharacterListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListService.swift; sourceTree = "<group>"; };
-		B18620822956199F00A6FDD9 /* CharacterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDTO.swift; sourceTree = "<group>"; };
+		B18620822956199F00A6FDD9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		B186208629561E7200A6FDD9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B186208A2956247C00A6FDD9 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		B186208C295624A200A6FDD9 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		B186208F295632BE00A6FDD9 /* CharacterTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTable.swift; sourceTree = "<group>"; };
 		B18620912956332700A6FDD9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		B186209829566FF800A6FDD9 /* JustServeContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustServeContainer.xcdatamodel; sourceTree = "<group>"; };
+		B1973E3C29567C16000619B2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,8 @@
 		B18620502956165800A6FDD9 /* sample-database-migration */ = {
 			isa = PBXGroup;
 			children = (
+				B1973E3B29567BFD000619B2 /* Managers */,
+				B186209629566FD700A6FDD9 /* CoreData */,
 				B186208E2956326400A6FDD9 /* DataBase */,
 				B1862080295618EA00A6FDD9 /* Services */,
 				B186207D295618B100A6FDD9 /* Extensions */,
@@ -170,7 +180,7 @@
 		B18620812956197D00A6FDD9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B18620822956199F00A6FDD9 /* CharacterDTO.swift */,
+				B18620822956199F00A6FDD9 /* Character.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +217,24 @@
 				B18620912956332700A6FDD9 /* DataStore.swift */,
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		B186209629566FD700A6FDD9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B179D347295A1A3500305684 /* CharacterMO+CoreDataClass.swift */,
+				B179D348295A1A3500305684 /* CharacterMO+CoreDataProperties.swift */,
+				B186209729566FF700A6FDD9 /* Sample.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B1973E3B29567BFD000619B2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B1973E3C29567C16000619B2 /* CoreDataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,16 +373,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B18620832956199F00A6FDD9 /* CharacterDTO.swift in Sources */,
+				B18620832956199F00A6FDD9 /* Character.swift in Sources */,
 				B186208B2956247C00A6FDD9 /* CharacterListView.swift in Sources */,
 				B186207F295618E400A6FDD9 /* CharacterListService.swift in Sources */,
 				B18620922956332700A6FDD9 /* DataStore.swift in Sources */,
 				B18620542956165800A6FDD9 /* ContentView.swift in Sources */,
+				B179D34A295A1A3500305684 /* CharacterMO+CoreDataProperties.swift in Sources */,
+				B186209929566FF800A6FDD9 /* Sample.xcdatamodeld in Sources */,
 				B186208D295624A200A6FDD9 /* CharacterListViewModel.swift in Sources */,
 				B18620522956165800A6FDD9 /* sample_database_migrationApp.swift in Sources */,
 				B186207C2956185100A6FDD9 /* URLSession+Extension.swift in Sources */,
 				B186208729561E7200A6FDD9 /* Constants.swift in Sources */,
+				B179D349295A1A3500305684 /* CharacterMO+CoreDataClass.swift in Sources */,
 				B1862090295632BE00A6FDD9 /* CharacterTable.swift in Sources */,
+				B1973E3D29567C16000619B2 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +730,19 @@
 			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B186209729566FF700A6FDD9 /* Sample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B186209829566FF800A6FDD9 /* JustServeContainer.xcdatamodel */,
+			);
+			currentVersion = B186209829566FF800A6FDD9 /* JustServeContainer.xcdatamodel */;
+			path = Sample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B18620462956165800A6FDD9 /* Project object */;
 }

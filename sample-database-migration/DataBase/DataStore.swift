@@ -65,7 +65,7 @@ extension DataStore {
                 try db.run(CharacterTable.table.delete())
                 for character in characters {
                     try db.run(CharacterTable.table.insert(or: .replace,
-                        CharacterTable.id <- character.id,
+                                                           CharacterTable.id <- Int(character.id),
                         CharacterTable.name <- character.name,
                         CharacterTable.status <- character.status,
                         CharacterTable.gender <- character.gender,

@@ -14,8 +14,6 @@ class DataBaseMigrationManager {
     private let coreDataManager: CoreDataManager
     
     init? (coreDataManager: CoreDataManager) {
-//        guard let database = DataStore.sharedInstance, database.db != nil
-//        else { return nil }
         self.coreDataManager = coreDataManager
         guard let database = try? DataStore()
         else { return nil }
@@ -25,13 +23,23 @@ class DataBaseMigrationManager {
     }
     
     func migrationDatabase() async  {
-        await CoreDataManager.shared.container.performBackgroundTask { [weak self] context in
+        await coreDataManager.container.performBackgroundTask { [weak self] context in
             
             guard let characters = self?.database.characters
             else { return }
             
-            for character in characters {
-                
+            self?.coreDataManager.updateOrCreateCharacters(characters)
+            
+            guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+            else { fatalError("Unable to locate path for database") }
+        
+            let filemManager = FileManager.default
+            do {
+                let fileURL = NSURL(fileURLWithPath: "\(path)/database.sqlite3")
+                try filemManager.removeItem(at: fileURL as URL)
+                print("Database Deleted!")
+            } catch {
+                print("Error on Delete Database!!!")
             }
         }
     }

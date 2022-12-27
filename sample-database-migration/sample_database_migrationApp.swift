@@ -13,8 +13,14 @@ struct sample_database_migrationApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CharacterListView(viewModel: CharacterListViewModel(managedObjectContext: dataController.context))
+            CharacterListView(viewModel: CharacterListViewModel(managedObjectContext: dataController))
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                .task {
+                    guard let databaseMigrationController = DataBaseMigrationManager(coreDataManager: dataController)
+                    else { return }
+                    
+                    await databaseMigrationController.migrationDatabase()
+                }
         }
     }
 }

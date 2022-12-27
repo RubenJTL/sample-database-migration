@@ -23,7 +23,7 @@ struct CharacterListView: View {
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
-        let context = CoreDataManager.shared.context
+        let context = CoreDataManager()
         let viewModel = CharacterListViewModel(managedObjectContext: context)
         CharacterListView(viewModel: viewModel)
     }

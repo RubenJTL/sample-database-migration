@@ -36,10 +36,10 @@ struct Character {
     }
     
     init(characterMO: CharacterMO) {
-        id = characterMO.id
-        name = characterMO.name
-        status = characterMO.status
-        gender = characterMO.gender
+        id = Int(characterMO.id)
+        name = characterMO.name ?? ""
+        status = characterMO.status ?? ""
+        gender = characterMO.gender ?? ""
         image = characterMO.image
     }
 

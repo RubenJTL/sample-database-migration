@@ -8,6 +8,10 @@
 import Foundation
 import SQLite
 
+enum DatabaseErrors: Error {
+    case invalidPath
+}
+
 class DataStore {
 //    static let sharedInstance = DataStore()
 
@@ -51,11 +55,28 @@ class DataStore {
         guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
         else { fatalError("Unable to locate path for database") }
         
+        let url = NSURL(fileURLWithPath: path)
+
+        if let pathComponent = url.appendingPathComponent("database.sqlite3") {
+            let filePath = pathComponent.path
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: filePath) {
+                print("FILE AVAILABLE")
+            } else {
+                throw DatabaseErrors.invalidPath
+            }
+        } else {
+            throw DatabaseErrors.invalidPath
+        }
+        
         db = try Connection("\(path)/database.sqlite3")
         db.busyHandler { _ in
             print("DB BUSY HANDLER called - possible thread contention for database")
             return true
         }
+        
+        try updateDatabase()
+
     }
     
     func updateDatabase() throws {

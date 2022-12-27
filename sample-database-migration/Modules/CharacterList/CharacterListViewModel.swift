@@ -14,39 +14,45 @@ final class CharacterListViewModel: ObservableObject {
     @Published var characters: [Character]
     @Published var isLoading = false
     
-    private let managedObjectContext: NSManagedObjectContext
+    private let coreDataManager: CoreDataManager
     private let characterListService: CharacterListServiceType
     private let dataStore: DataStore?
     private var cancellables = Set<AnyCancellable>()
     
-    init(characters: [Character] = [Character](), characterListService: CharacterListServiceType = CharacterListService(), managedObjectContext: NSManagedObjectContext) {
+    init(characters: [Character] = [Character](), characterListService: CharacterListServiceType = CharacterListService(), managedObjectContext: CoreDataManager) {
         self.characters = characters
         self.characterListService = characterListService
-        self.managedObjectContext = managedObjectContext
+        self.coreDataManager = managedObjectContext
         self.dataStore = try? DataStore()
-        if let storedCharacters = dataStore?.characters, !storedCharacters.isEmpty {
-            self.characters = storedCharacters
-        } else {
-            fetchCharacters()
-        }
+
+        fetchCharacters()
     }
     
     func fetchCharacters() {
         isLoading = true
-        characterListService.getCharacters()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                switch completion {
-                    case .finished:
-                        self?.isLoading = false
-                    case .failure(let error):
-                        print(error)
-                        self?.isLoading = false
+        
+        if let charactersMO = try? coreDataManager.getAll(CharacterMO.self),  !charactersMO.isEmpty {
+            characters = charactersMO.map { Character(characterMO: $0) }
+            isLoading = false
+        } else {
+            characterListService.getCharacters()
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] completion in
+                    switch completion {
+                        case .finished:
+                            self?.isLoading = false
+                        case .failure(let error):
+                            print(error)
+                            self?.isLoading = false
+                    }
+                } receiveValue: { [weak self] characters in
+                    self?.characters = characters
+                    self?.dataStore?.updateCharacters(characters)
+                    self?.coreDataManager.updateOrCreateCharacters(characters)
                 }
-            } receiveValue: { [weak self] characters in
-                self?.characters = characters
-                self?.dataStore?.updateCharacters(characters)
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        }
+        
+       
     }
 }
